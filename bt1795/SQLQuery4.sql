@@ -1,7 +1,13 @@
+create database bai_do_xe
+go
+
+use bai_do_xe
+go
+
 create table BaiDoXe (
 	ten_bai nvarchar(50),
 	ma_bai_do_xe int primary key identity(1,1),
-	dia_chi nvarchar(200),
+	dia_chi nvarchar(200)
 );
 go
 
@@ -12,7 +18,7 @@ create table ThongTinGui (
 	ma_bai_do_xe int,
 	id_chu_so_huu int,
 	foreign key (ma_bai_do_xe) references BaiDoXe(ma_bai_do_xe),
-	foreign key (id_chu_so_huu) references ChuSoHuu(id_chu_so_huu),
+	foreign key (id_chu_so_huu) references ChuSoHuu(id_chu_so_huu)
 );
 go
 
@@ -20,36 +26,24 @@ create table ChuSoHuu (
 	id_chu_so_huu int primary key identity(1,1),
 	ten nvarchar(50),
 	so_cmtnd nvarchar(20),
-	dia_chi nvarchar(200),
+	dia_chi nvarchar(200)
 );
 go
 
-insert into BaiDoXe (ten_bai, ma_bai_do_xe,	dia_chi)
-values
-('Park1', 101, 'HN1')
-go
-
-insert into BaiDoXe (ten_bai, ma_bai_do_xe,	dia_chi)
-values
-('Park2', 102, 'HN2')
-go
-
 insert into BaiDoXe (ten_bai, dia_chi)
 values
-('Park3','HN3')
-go
-
-insert into BaiDoXe (ten_bai, dia_chi)
-values
-('Park4','HN4')
-go
-
-insert into BaiDoXe (ten_bai, dia_chi)
-values
+('Park1', 'HN1'),
+('Park2', 'HN2'),
+('Park3','HN3'),
+('Park4','HN4'),
 ('Park5', 'HN5')
 go
 
-
 select * from BaiDoXe;
+go
 
-drop table BaiDoXe;
+select * from ThongTinGui;
+go
+
+select * from ChuSoHuu;
+go
