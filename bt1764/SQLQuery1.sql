@@ -162,6 +162,10 @@ select * from sinh_vien
 where address = N'Nam Định'
 go
 
+select * from lop_hoc
+where ten_lop_hoc like '%A8%'
+go
+
 select sinh_vien.rollno N'Mã sinh viên', sinh_vien.fullname N'Họ và tên', diem.diem N'Điểm'
 from sinh_vien, diem
 where sinh_vien.rollno = diem.rollno and sinh_vien.fullname = 'Tran Van A'
